@@ -26,12 +26,13 @@ in alternative you can use docker run, but... why?
 version: '2'
 services:
    ids:
-      image: fabriziogaliano/docker-snort-ids:latest
+      image: fabriziogaliano/snort-ids:latest
 
       network_mode: host
 
       volumes:
          - "/etc/localtime:/etc/localtime"
+         - "./rules:/etc/snort/rules"
          - "./log/snort:/var/log/snort"
          - "./log/barnyard2:/var/log/barnyard2"
 
@@ -40,6 +41,7 @@ services:
       environment:
          SNORT_NET: "x.x.x.x/xx"
          HOST_INT: "eth0"
+         HOST_NAME: "snort01"
          PPORK_OINKCODE: "00xxxxxd6934xxxxxxxx4ab1e0d4a7xxxxxxxc6c8"
          BARN_DBUSER: "snort"
          BARN_DBNAME: "snorby"
