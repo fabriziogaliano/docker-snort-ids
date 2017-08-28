@@ -52,7 +52,38 @@ services:
 
 ```
 
-## As web GUI i used a very good image, tnx mate
+## DB for Barnyard2 ( /docker-entrypoint-initdb.d help you to inizialize the DB for the first time )
+
+```
+
+version: '2'
+services:
+    ids_db:
+       image: mariadb:10.3.0
+
+       container_name: ids_db
+
+       network_mode: host
+
+       environment:
+          MYSQL_DATABASE: "snorby"
+          MYSQL_USER: "snort"
+          MYSQL_PASSWORD: "yourUserPassword"
+          MYSQL_ROOT_PASSWORD: "yourRootPassword"
+
+       volumes:
+          # you can find the *.sql in GitHub ( /docker/scripts/snorby-schema.sql )
+          - "./snorby-schema.sql:/docker-entrypoint-initdb.d"
+          - "./data:/var/lib/mysql"
+
+       ports:
+         - "3306:3306"
+
+       restart: always
+
+```
+
+## As web GUI i used SNORBY, a good product, tnx mate for the image
 
 ```
 
