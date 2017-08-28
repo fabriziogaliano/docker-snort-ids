@@ -3,6 +3,21 @@
 
 Docker IDS image with Snort 2.9.9.0, Barnyard2 2-1.13, PulledPork 0.7.0, DAQ 2.0.6, Libpcap 1.7.4
 
+
+## All the Environment showed below are Mandatory!
+
+```
+
+SNORT_NET: Network where snort sniff traffic
+HOST_INT: Network interface where traffic dump operation are done
+PPORK_OINKCODE: Your Snort OINKCODE (create on https://snort.org)
+BARN_DBUSER: DB User for Barnyard2
+BARN_DBNAME: DB name where Barnyard2 will insert record
+BARN_DBPASS: DB User password
+BARN_DBHOST: DB host
+
+```
+
 ## Docker-compose file
 in alternative you can use docker run, but... why?
 
