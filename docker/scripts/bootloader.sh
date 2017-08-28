@@ -9,12 +9,15 @@ chown snort.snort /etc/snort -R
 mkdir -p /var/log/snort
 
 #create some needed files
-touch /etc/snort/sid-msg.map
+mkdir -p /etc/snort/rules/iplists/
 mkdir -p /var/log/barnyard2
+touch /etc/snort/rules/iplists/default.blacklist
+touch /etc/snort/rules/iplists/default.whitelist
+touch /etc/snort/sid-msg.map
 touch /var/log/snort/barnyard2.waldo
 
 #if you do not have oinkcode yet # ATTENTION ! these rules could be outdated #
-# cp -r /docker/rules/* /etc/snort/rules/
+cp -r /docker/rules/* /etc/snort/rules/
 
 #example snort.rules
 # echo "alert icmp any any -> any any (msg:"LOCAL ICMP echo test"; itype:8; sid:2000000;)" >> /etc/snort/rules/snort.rules

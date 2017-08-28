@@ -8,7 +8,7 @@ ENV DVERS daq-2.0.6
 
 #PulledPork Env
 ENV PPORK_VERSION 0.7.0
-ENV PPORK_OINKCODE "df3ce63e0e9c5040923707f903c87a14dfc7f921"
+ENV PPORK_OINKCODE ""
 
 #Snort Env
 ENV SNVERS 2.9.9.0
@@ -55,7 +55,8 @@ RUN apt-get -y install \
         libapr1-dev \
         libaprutil1-dev \
         supervisor \
-        net-tools
+        net-tools \
+        gettext-base
 
 #Install LIBDNET - LIBPCAP
 RUN apt-get install -y libdumbnet-dev libpcap-dev
@@ -131,12 +132,16 @@ RUN apt-get clean \
 
 RUN rm -rf /tmp/*
 
-#Pulling down the Rules
-RUN /usr/sbin/pulledpork.pl -c /etc/snort/pulledpork.conf
-
-RUN echo "/usr/sbin/pulledpork.pl -c /etc/snort/pulledpork.conf" >> /etc/cron.daily/pulledpork \
-    && echo "systemctl restart snort" >> /etc/cron.daily/pulledpork
-
 COPY docker /docker
+
+#Subst Oinkcode tu pulledpork conf
+# RUN cp /docker/configuration/pulledpork/pulledpork.conf /etc/snort/pulledpork.conf
+# RUN sed -i -e 's|<'PPORK_OINKCODE'>|'$PPORK_OINKCODE'|g' '/etc/snort/pulledpork.conf'
+# RUN sed -i -e 's|<'PPORK_VERSION'>|'$PPORK_VERSION'|g' '/etc/snort/pulledpork.conf'
+
+#Pulling down the Rules
+# RUN /usr/sbin/pulledpork.pl -c /etc/snort/pulledpork.conf
+
+RUN echo "/usr/sbin/pulledpork.pl -c /etc/snort/pulledpork.conf" >> /etc/cron.daily/pulledpork
 
 CMD ["/bin/bash", "/docker/scripts/entrypoint.sh", "start-stack"]

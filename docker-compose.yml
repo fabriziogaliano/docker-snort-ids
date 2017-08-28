@@ -7,6 +7,7 @@ services:
 
       volumes:
          - "/etc/localtime:/etc/localtime"
+         - "./rules:/etc/snort/rules"
          - "./log/snort:/var/log/snort"
          - "./log/barnyard2:/var/log/barnyard2"
 
