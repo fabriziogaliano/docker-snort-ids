@@ -4,7 +4,7 @@
 Docker IDS image with Snort 2.9.9.0, Barnyard2 2-1.13, PulledPork 0.7.0, DAQ 2.0.6, Libpcap 1.7.4
 
 
-## All the Environment showed below are Mandatory!
+## All the Environment shown below are Mandatory!
 
 ```
 
