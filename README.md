@@ -10,6 +10,7 @@ Docker IDS image with Snort 2.9.9.0, Barnyard2 2-1.13, PulledPork 0.7.0, DAQ 2.0
 
 SNORT_NET: Network where snort sniff traffic
 HOST_INT: Network interface where traffic dump operation are done
+HOST_NAME: Name of the IDS is running
 PPORK_OINKCODE: Your Snort OINKCODE (create on https://snort.org)
 BARN_DBUSER: DB User for Barnyard2
 BARN_DBNAME: DB name where Barnyard2 will insert record
