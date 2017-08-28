@@ -1,4 +1,4 @@
-# ids-snort-docker
+# docker-snort-ids
 [![](https://images.microbadger.com/badges/version/fabriziogaliano/docker-snort-ids.svg)](https://microbadger.com/images/fabriziogaliano/docker-snort-ids "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/fabriziogaliano/docker-snort-ids.svg)](https://microbadger.com/images/fabriziogaliano/docker-snort-ids "Get your own image badge on microbadger.com")
 
 Docker IDS image with Snort 2.9.9.0, Barnyard2 2-1.13, PulledPork 0.7.0, DAQ 2.0.6, Libpcap 1.7.4
