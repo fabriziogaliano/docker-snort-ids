@@ -16,6 +16,7 @@ services:
       environment:
          SNORT_NET: "x.x.x.x/xx"
          HOST_INT: "eth0"
+         HOST_NAME: "snort01"
          PPORK_OINKCODE: "00xxxxxd6934xxxxxxxx4ab1e0d4a7xxxxxxxc6c8"
          BARN_DBUSER: "snort"
          BARN_DBNAME: "snorby"

@@ -5,6 +5,8 @@ MAINTAINER Fabrizio Galiano <fabrizio.galiano@hotmail.com>
 #Gen Env
 ENV LVERS libpcap-1.7.4
 ENV DVERS daq-2.0.6
+ENV HOST_INT ""
+ENV HOST_NAME ""
 
 #PulledPork Env
 ENV PPORK_VERSION 0.7.0
@@ -141,7 +143,5 @@ COPY docker /docker
 
 #Pulling down the Rules
 # RUN /usr/sbin/pulledpork.pl -c /etc/snort/pulledpork.conf
-
-RUN echo "/usr/sbin/pulledpork.pl -c /etc/snort/pulledpork.conf" >> /etc/cron.daily/pulledpork
 
 CMD ["/bin/bash", "/docker/scripts/entrypoint.sh", "start-stack"]

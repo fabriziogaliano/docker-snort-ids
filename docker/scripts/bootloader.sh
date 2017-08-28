@@ -8,6 +8,10 @@ cp /docker/configuration/barnyard2/barnyard2.conf /etc/snort/barnyard2.conf
 chown snort.snort /etc/snort -R
 mkdir -p /var/log/snort
 
+#PulledPork cron daily
+cp /docker/scripts/pulledpork-cron.sh /etc/cron.daily/pulledpork-cron.sh
+chmod +x /etc/cron.daily/pulledpork-cron.sh
+
 #create some needed files
 mkdir -p /etc/snort/rules/iplists/
 mkdir -p /var/log/barnyard2
