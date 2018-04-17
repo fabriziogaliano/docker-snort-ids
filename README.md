@@ -84,6 +84,23 @@ services:
 
 ```
 
+## If you encount problem with the operations to set the snorby password follow this command
+
+```
+login to container and launch: 
+
+# yum update -y nss curl libcurl
+
+# cd /usr/local/src/snorby
+
+# bundle install
+
+# RAILS_ENV="production" bundle exec script/rails c
+
+# User.create(:name => 'Administrator', :email => 'user@domain.com', :password => 'yourPasswordHere', :password_confirmation => 'yourPasswordHere', :admin => true)
+
+```
+
 ## As web GUI i used SNORBY, a good product, tnx mate for the image
 
 ```
